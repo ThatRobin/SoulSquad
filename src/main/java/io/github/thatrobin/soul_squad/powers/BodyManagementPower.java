@@ -1,4 +1,4 @@
-package io.github.thatrobin.hivemind.powers;
+package io.github.thatrobin.soul_squad.powers;
 
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import io.github.apace100.apoli.component.PowerHolderComponent;
@@ -10,12 +10,12 @@ import io.github.apace100.origins.component.OriginComponent;
 import io.github.apace100.origins.origin.OriginLayer;
 import io.github.apace100.origins.origin.OriginLayers;
 import io.github.apace100.origins.registry.ModComponents;
-import io.github.thatrobin.hivemind.Hivemind;
-import io.github.thatrobin.hivemind.component.BodyHolderComponent;
-import io.github.thatrobin.hivemind.component.BodyOwnerComponent;
-import io.github.thatrobin.hivemind.entity.HivemindBodyEntity;
-import io.github.thatrobin.hivemind.mixin.PowerHolderComponentImplAccessorMixin;
-import io.github.thatrobin.hivemind.networking.HivemindPackets;
+import io.github.thatrobin.soul_squad.SoulSquad;
+import io.github.thatrobin.soul_squad.component.BodyHolderComponent;
+import io.github.thatrobin.soul_squad.component.BodyOwnerComponent;
+import io.github.thatrobin.soul_squad.entity.HivemindBodyEntity;
+import io.github.thatrobin.soul_squad.mixin.PowerHolderComponentImplAccessorMixin;
+import io.github.thatrobin.soul_squad.networking.HivemindPackets;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.entity.LivingEntity;
@@ -97,6 +97,7 @@ public class BodyManagementPower extends Power {
                     originOneComponent.sync();
                 }
             }
+            PowerHolderComponent.sync(entity);
         }
         swapPlayer(this.currentBodyIndex);
     }
@@ -107,7 +108,7 @@ public class BodyManagementPower extends Power {
     }
 
     public static PowerFactory<?> createFactory() {
-        return new PowerFactory<>(Hivemind.identifier("body_manager"),
+        return new PowerFactory<>(SoulSquad.hivemind("body_manager"),
                 new SerializableData(),
                 data ->
                         BodyManagementPower::new)
@@ -258,7 +259,7 @@ public class BodyManagementPower extends Power {
                     }
                 }));
                 ((PowerHolderComponentImplAccessorMixin)playerComponent).getPowerSources().forEach(((powerType, identifiers) -> {
-                    if(!(powerType.getIdentifier().equals(Hivemind.identifier("body_management")))) {
+                    if(!(powerType.getIdentifier().equals(SoulSquad.hivemind("body_management")))) {
                         ((PowerHolderComponentImplAccessorMixin)playerComponent).getPowerSources().remove(powerType);
                     }
                 }));
@@ -280,7 +281,7 @@ public class BodyManagementPower extends Power {
                     }
                 }));
                 ((PowerHolderComponentImplAccessorMixin)bodyComponent).getPowerSources().forEach(((powerType, identifiers) -> {
-                    if(!(powerType.getIdentifier().equals(Hivemind.identifier("body_management")))) {
+                    if(!(powerType.getIdentifier().equals(SoulSquad.hivemind("body_management")))) {
                         ((PowerHolderComponentImplAccessorMixin)bodyComponent).getPowerSources().remove(powerType);
                     }
                 }));

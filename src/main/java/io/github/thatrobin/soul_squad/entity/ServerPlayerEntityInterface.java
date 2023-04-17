@@ -1,4 +1,4 @@
-package io.github.thatrobin.hivemind.entity;
+package io.github.thatrobin.soul_squad.entity;
 
 
 public interface ServerPlayerEntityInterface {

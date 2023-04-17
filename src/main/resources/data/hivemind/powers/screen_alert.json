@@ -1,0 +1,18 @@
+{
+    "type": "origins:simple",
+    "name": "Body Swapping",
+    "description": "You can jump between your living bodies using a UI, the icons resemble what item your body is holding, and you can change the name displayed for the body by wearing a renamed helmet.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": [
+                "Open Screen with [",
+                {
+                    "keybind": "key.hivemind.open_cycle_screen"
+                },
+                "]!"
+            ]
+        }
+    ]
+}

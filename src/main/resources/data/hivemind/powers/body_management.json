@@ -1,3 +1,4 @@
 {
-  "type": "hivemind:body_manager"
+    "type": "hivemind:body_manager",
+    "hidden": true
 }

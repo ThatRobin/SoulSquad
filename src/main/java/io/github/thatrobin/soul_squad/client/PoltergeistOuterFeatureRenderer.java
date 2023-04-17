@@ -1,10 +1,9 @@
-package io.github.thatrobin.poltergeist.client;
+package io.github.thatrobin.soul_squad.client;
 
 import io.github.apace100.apoli.component.PowerHolderComponent;
-import io.github.thatrobin.poltergeist.Poltergeist;
-import io.github.thatrobin.poltergeist.powers.BlockPossession;
+import io.github.thatrobin.soul_squad.SoulSquad;
+import io.github.thatrobin.soul_squad.powers.BlockPossession;
 import net.minecraft.block.BlockState;
-import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -14,19 +13,18 @@ import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayers;
 import net.minecraft.client.render.entity.model.EntityModelLoader;
-import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.Identifier;
 
 public class PoltergeistOuterFeatureRenderer<T extends LivingEntity, M extends EntityModel<T>> extends FeatureRenderer<T, M> {
-    private static final Identifier SKIN = Poltergeist.identifier("textures/entity/poltergeist/poltergeist.png");
+    private static final Identifier SKIN = SoulSquad.poltergeist("textures/entity/poltergeist/poltergeist.png");
 
     private final EntityModel<T> model;
 
     public PoltergeistOuterFeatureRenderer(FeatureRendererContext<T, M> context, EntityModelLoader loader) {
         super(context);
-        this.model = new PoltergeistModel(loader.getModelPart(EntityModelLayers.SLIME_OUTER));
+        this.model = new PoltergeistModel<>(loader.getModelPart(EntityModelLayers.SLIME_OUTER));
     }
 
     @Override

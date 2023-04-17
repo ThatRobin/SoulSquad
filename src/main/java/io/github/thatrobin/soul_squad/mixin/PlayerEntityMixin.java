@@ -1,26 +1,17 @@
-package io.github.thatrobin.hivemind.mixin;
+package io.github.thatrobin.soul_squad.mixin;
 
-import com.mojang.authlib.GameProfile;
 import io.github.apace100.apoli.component.PowerHolderComponent;
-import io.github.thatrobin.hivemind.Hivemind;
-import io.github.thatrobin.hivemind.component.BodyOwnerComponent;
-import io.github.thatrobin.hivemind.entity.HivemindBodyEntity;
-import io.github.thatrobin.hivemind.powers.BodyManagementPower;
+import io.github.thatrobin.soul_squad.component.BodyOwnerComponent;
+import io.github.thatrobin.soul_squad.entity.HivemindBodyEntity;
+import io.github.thatrobin.soul_squad.powers.BodyManagementPower;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.text.MutableText;
-import net.minecraft.text.Text;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import java.util.Optional;
 
 @Mixin(PlayerEntity.class)
 public class PlayerEntityMixin {

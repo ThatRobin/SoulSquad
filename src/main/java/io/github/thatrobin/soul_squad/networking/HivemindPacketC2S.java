@@ -1,8 +1,7 @@
-package io.github.thatrobin.hivemind.networking;
+package io.github.thatrobin.soul_squad.networking;
 
 import io.github.apace100.apoli.component.PowerHolderComponent;
-import io.github.thatrobin.hivemind.powers.BodyManagementPower;
-import io.netty.buffer.Unpooled;
+import io.github.thatrobin.soul_squad.powers.BodyManagementPower;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.network.PacketByteBuf;

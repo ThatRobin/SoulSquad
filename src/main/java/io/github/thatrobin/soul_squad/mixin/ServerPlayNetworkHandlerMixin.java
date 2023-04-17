@@ -1,8 +1,7 @@
-package io.github.thatrobin.hivemind.mixin;
+package io.github.thatrobin.soul_squad.mixin;
 
 import com.llamalad7.mixinextras.injector.WrapWithCondition;
-import io.github.thatrobin.hivemind.Hivemind;
-import io.github.thatrobin.hivemind.entity.HivemindBodyEntity;
+import io.github.thatrobin.soul_squad.entity.HivemindBodyEntity;
 import net.minecraft.server.PlayerManager;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;

@@ -1,4 +1,4 @@
-package io.github.thatrobin.hivemind.entity;
+package io.github.thatrobin.soul_squad.entity;
 
 import io.netty.channel.Channel;
 

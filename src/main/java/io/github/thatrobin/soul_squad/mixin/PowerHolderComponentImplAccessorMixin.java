@@ -1,4 +1,4 @@
-package io.github.thatrobin.hivemind.mixin;
+package io.github.thatrobin.soul_squad.mixin;
 
 import io.github.apace100.apoli.component.PowerHolderComponentImpl;
 import io.github.apace100.apoli.power.Power;

@@ -1,4 +1,4 @@
-package io.github.thatrobin.poltergeist.util;
+package io.github.thatrobin.soul_squad.util;
 
 import net.minecraft.block.*;
 import net.minecraft.block.entity.*;

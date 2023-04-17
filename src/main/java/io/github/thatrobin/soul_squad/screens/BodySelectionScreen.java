@@ -1,15 +1,12 @@
-package io.github.thatrobin.hivemind.screens;
+package io.github.thatrobin.soul_squad.screens;
 
 import com.google.common.collect.Lists;
 import com.mojang.blaze3d.systems.RenderSystem;
-import io.github.apace100.apoli.command.PowerCommand;
 import io.github.apace100.apoli.component.PowerHolderComponent;
-import io.github.apace100.apoli.power.PowerType;
-import io.github.thatrobin.hivemind.Hivemind;
-import io.github.thatrobin.hivemind.component.BodyHolderComponent;
-import io.github.thatrobin.hivemind.entity.HivemindBodyEntity;
-import io.github.thatrobin.hivemind.networking.HivemindPackets;
-import io.github.thatrobin.hivemind.powers.BodyManagementPower;
+import io.github.thatrobin.soul_squad.SoulSquad;
+import io.github.thatrobin.soul_squad.component.BodyHolderComponent;
+import io.github.thatrobin.soul_squad.networking.HivemindPackets;
+import io.github.thatrobin.soul_squad.powers.BodyManagementPower;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -27,11 +24,7 @@ import net.minecraft.client.render.model.BakedModel;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.client.util.NarratorManager;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.network.PacketByteBuf;
@@ -41,43 +34,38 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.crash.CrashException;
 import net.minecraft.util.crash.CrashReport;
 import net.minecraft.util.crash.CrashReportSection;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
-import java.util.UUID;
-import java.util.function.Consumer;
-import java.util.function.Function;
 
 public class BodySelectionScreen extends Screen {
 
-    static final Identifier TEXTURE = Hivemind.identifier("textures/gui/body_switcher.png");
-    private static final int UI_WIDTH = BodySelectionScreen.BodySelection.values().length * 31 - 5;
+    static final Identifier TEXTURE = SoulSquad.hivemind("textures/gui/body_switcher.png");
+    private static final int UI_WIDTH = BodySelection.values().length * 31 - 5;
     private static final Text SELECT_NEXT_TEXT = Text.literal("[").append(Text.keybind("key.hivemind.cycle_bodies").formatted(Formatting.AQUA)).append(Text.literal("] ").append(Text.translatable("debug.gamemodes.select_next")));
-    private final Optional<BodySelectionScreen.BodySelection> currentBody;
-    private Optional<BodySelectionScreen.BodySelection> gameMode = Optional.empty();
+    private final Optional<BodySelection> currentBody;
+    private Optional<BodySelection> gameMode = Optional.empty();
     private int lastMouseX;
     private int lastMouseY;
     private boolean mouseUsedForSelection;
-    private final List<BodySelectionScreen.ButtonWidget> gameModeButtons = Lists.newArrayList();
+    private final List<ButtonWidget> gameModeButtons = Lists.newArrayList();
 
     public BodySelectionScreen() {
         super(NarratorManager.EMPTY);
-        this.currentBody = BodySelectionScreen.BodySelection.of(MinecraftClient.getInstance().player);
+        this.currentBody = BodySelection.of(MinecraftClient.getInstance().player);
     }
 
     @Override
     protected void init() {
         super.init();
-        this.gameMode = this.currentBody.isPresent() ? this.currentBody : BodySelectionScreen.BodySelection.of(MinecraftClient.getInstance().player);
-        for (int i = 0; i < BodySelectionScreen.BodySelection.VALUES.length; ++i) {
-            BodySelectionScreen.BodySelection gameModeSelection = BodySelectionScreen.BodySelection.VALUES[i];
+        this.gameMode = this.currentBody.isPresent() ? this.currentBody : BodySelection.of(MinecraftClient.getInstance().player);
+        for (int i = 0; i < BodySelection.VALUES.length; ++i) {
+            BodySelection gameModeSelection = BodySelection.VALUES[i];
             if (MinecraftClient.getInstance().player != null) {
                 BodyHolderComponent component = BodyHolderComponent.KEY.get(MinecraftClient.getInstance().player);
                 gameModeSelection.player = component.getBody(gameModeSelection.bodyIndex);
             }
-            this.gameModeButtons.add(new BodySelectionScreen.ButtonWidget(gameModeSelection, this.width / 2 - UI_WIDTH / 2 + i * 31, this.height / 2 - 31));
+            this.gameModeButtons.add(new ButtonWidget(gameModeSelection, this.width / 2 - UI_WIDTH / 2 + i * 31, this.height / 2 - 31));
         }
     }
 
@@ -103,7 +91,7 @@ public class BodySelectionScreen extends Screen {
             this.mouseUsedForSelection = true;
         }
         boolean bl = this.lastMouseX == mouseX && this.lastMouseY == mouseY;
-        for (BodySelectionScreen.ButtonWidget buttonWidget : this.gameModeButtons) {
+        for (ButtonWidget buttonWidget : this.gameModeButtons) {
             buttonWidget.render(matrices, mouseX, mouseY, delta);
             this.gameMode.ifPresent(gameMode -> {
                 buttonWidget.setSelected(gameMode == buttonWidget.gameMode);
@@ -118,8 +106,8 @@ public class BodySelectionScreen extends Screen {
         BodySelectionScreen.apply(this.client, this.gameMode);
     }
 
-    private static void apply(MinecraftClient client, Optional< BodySelectionScreen.BodySelection > gameMode) {
-        BodySelectionScreen.BodySelection gameModeSelection = gameMode.get();
+    private static void apply(MinecraftClient client, Optional< BodySelection > gameMode) {
+        BodySelection gameModeSelection = gameMode.get();
         if(gameModeSelection.player != null) {
             Optional<BodyManagementPower> powerOptional = PowerHolderComponent.getPowers(client.player, BodyManagementPower.class).stream().findFirst();
             PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
@@ -131,7 +119,7 @@ public class BodySelectionScreen extends Screen {
     }
 
     private boolean checkForClose() {
-        if (!InputUtil.isKeyPressed(this.client.getWindow().getHandle(), KeyBindingHelper.getBoundKeyOf(Hivemind.OPEN_CYCLE_SCREEN).getCode())) {
+        if (!InputUtil.isKeyPressed(this.client.getWindow().getHandle(), KeyBindingHelper.getBoundKeyOf(SoulSquad.OPEN_CYCLE_SCREEN).getCode())) {
             this.apply();
             this.client.setScreen(null);
             return true;
@@ -141,7 +129,7 @@ public class BodySelectionScreen extends Screen {
 
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-        if (Hivemind.CYCLE_BODIES.matchesKey(keyCode, scanCode) && this.gameMode.isPresent()) {
+        if (SoulSquad.CYCLE_BODIES.matchesKey(keyCode, scanCode) && this.gameMode.isPresent()) {
             this.mouseUsedForSelection = false;
             this.gameMode = this.gameMode.get().next();
             return true;
@@ -159,7 +147,7 @@ public class BodySelectionScreen extends Screen {
         ORIGINAL(Text.translatable("body.hivemind.original"), new ItemStack(Items.RED_BED), 0),
         BODY_ONE(Text.translatable("body.hivemind.one"), new ItemStack(Items.IRON_PICKAXE), 1),
         BODY_TWO(Text.translatable("body.hivemind.two"), new ItemStack(Items.WHEAT), 2);
-        private static final BodySelectionScreen.BodySelection[] VALUES;
+        private static final BodySelection[] VALUES;
         final Text text;
         int bodyIndex;
         public PlayerEntity player;
@@ -193,7 +181,7 @@ public class BodySelectionScreen extends Screen {
             return this.text;
         }
 
-        Optional<BodySelectionScreen.BodySelection> next() {
+        Optional<BodySelection> next() {
             switch (this) {
                 case ORIGINAL -> {
                     return Optional.of(BODY_ONE);
@@ -208,7 +196,7 @@ public class BodySelectionScreen extends Screen {
             return Optional.of(ORIGINAL);
         }
 
-        static Optional<BodySelectionScreen.BodySelection> of(PlayerEntity entity) {
+        static Optional<BodySelection> of(PlayerEntity entity) {
             if(entity != null) {
                 if (entity.getDisplayName().getString().endsWith("-1")) {
                     return Optional.of(BODY_ONE);
@@ -222,17 +210,17 @@ public class BodySelectionScreen extends Screen {
         }
 
         static {
-            VALUES = BodySelectionScreen.BodySelection.values();
+            VALUES = BodySelection.values();
         }
     }
 
     @Environment(value=EnvType.CLIENT)
     public class ButtonWidget extends ClickableWidget {
-        final BodySelectionScreen.BodySelection gameMode;
+        final BodySelection gameMode;
         private boolean selected;
         private final ItemStack barrier = new ItemStack(Blocks.BARRIER);
 
-        public ButtonWidget(BodySelectionScreen.BodySelection gameMode, int x, int y) {
+        public ButtonWidget(BodySelection gameMode, int x, int y) {
             super(x, y, 26, 26, gameMode.getText());
             this.gameMode = gameMode;
         }

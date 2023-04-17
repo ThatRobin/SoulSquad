@@ -1,4 +1,4 @@
-package io.github.thatrobin.poltergeist.mixin;
+package io.github.thatrobin.soul_squad.mixin;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.pattern.CachedBlockPosition;

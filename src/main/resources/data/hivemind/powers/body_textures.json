@@ -6,7 +6,8 @@
         "condition": {
             "type": "hivemind:in_body",
             "body_number": 0
-        }
+        },
+        "hidden": true
     },
     "body_two_texture": {
         "type": "origins:status_bar_texture",
@@ -14,7 +15,8 @@
         "condition": {
             "type": "hivemind:in_body",
             "body_number": 1
-        }
+        },
+        "hidden": true
     },
     "body_three_texture": {
         "type": "origins:status_bar_texture",
@@ -22,6 +24,8 @@
         "condition": {
             "type": "hivemind:in_body",
             "body_number": 2
-        }
-    }
+        },
+        "hidden": true
+    },
+    "hidden": true
 }

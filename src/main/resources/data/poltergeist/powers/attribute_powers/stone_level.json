@@ -1,19 +1,87 @@
 {
-    "type": "origins:conditioned_attribute",
-    "modifier": {
-        "attribute": "minecraft:generic.attack_damage",
-        "operation": "addition",
-        "value": 3
+    "type": "origins:multiple",
+    "attack": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.attack_damage",
+            "operation": "addition",
+            "value": 3
+        },
+        "tick_rate": 20,
+        "condition": {
+            "type": "poltergeist:is_possessing_block",
+            "block_condition": {
+                "type": "poltergeist:has_item_in_recipe",
+                "item_condition": {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:cobblestone"
+                    }
+                }
+            }
+        }
     },
-    "tick_rate": 20,
-    "condition": {
-        "type": "poltergeist:is_possessing_block",
+    "break_speed": {
+        "type": "origins:modify_break_speed",
         "block_condition": {
-            "type": "poltergeist:has_item_in_recipe",
-            "item_condition": {
-                "type": "origins:ingredient",
-                "ingredient": {
-                    "item": "minecraft:cobblestone"
+            "type": "origins:in_tag",
+            "tag": "poltergeist:mineable_combo"
+        },
+        "modifier": {
+            "operation": "addition",
+            "value": 0.03
+        },
+        "condition": {
+            "type": "poltergeist:is_possessing_block",
+            "block_condition": {
+                "type": "poltergeist:has_item_in_recipe",
+                "item_condition": {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "item": "minecraft:cobblestone"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "harvest": {
+        "type": "origins:modify_harvest",
+        "block_condition": {
+            "type": "origins:in_tag",
+            "tag": "minecraft:needs_stone_tool"
+        },
+        "allow": true,
+        "condition": {
+            "type": "poltergeist:is_possessing_block",
+            "block_condition": {
+                "type": "poltergeist:has_item_in_recipe",
+                "item_condition": {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "item": "minecraft:diamond"
+                            }
+                        },
+                        {
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "item": "minecraft:iron_ingot"
+                            }
+                        },
+                        {
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "item": "minecraft:cobblestone"
+                            }
+                        }
+                    ]
                 }
             }
         }

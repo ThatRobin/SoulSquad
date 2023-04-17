@@ -1,6 +1,6 @@
-package io.github.thatrobin.hivemind.component;
+package io.github.thatrobin.soul_squad.component;
 
-import io.github.thatrobin.hivemind.Hivemind;
+import io.github.thatrobin.soul_squad.SoulSquad;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -12,7 +12,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 import java.util.UUID;
 
 public class BodyHolderComponentImpl implements BodyHolderComponent {
@@ -74,7 +73,7 @@ public class BodyHolderComponentImpl implements BodyHolderComponent {
     @Override
     public void readFromNbt(@NotNull NbtCompound compoundTag) {
         if (owner == null) {
-            Hivemind.LOGGER.error("Owner was null in BodyHolderComponentImpl#readFromNbt!");
+            SoulSquad.LOGGER.error("Owner was null in BodyHolderComponentImpl#readFromNbt!");
         }
         if(compoundTag.contains("Bodies")) {
             NbtList list = compoundTag.getList("Bodies", NbtElement.COMPOUND_TYPE);

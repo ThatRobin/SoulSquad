@@ -1,8 +1,8 @@
-package io.github.thatrobin.poltergeist.powers;
+package io.github.thatrobin.soul_squad.powers;
 
 import io.github.apace100.apoli.power.factory.PowerFactory;
 import io.github.apace100.apoli.registry.ApoliRegistries;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
 
 public class PoltergeistPowerTypes {
 

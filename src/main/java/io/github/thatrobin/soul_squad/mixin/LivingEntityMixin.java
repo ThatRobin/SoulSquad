@@ -1,13 +1,13 @@
-package io.github.thatrobin.poltergeist.mixin;
+package io.github.thatrobin.soul_squad.mixin;
 
 import io.github.apace100.apoli.component.PowerHolderComponent;
-import io.github.thatrobin.poltergeist.component.BlockDurabilityComponent;
-import io.github.thatrobin.poltergeist.powers.BlockPossession;
+import io.github.thatrobin.soul_squad.component.BlockDurabilityComponent;
+import io.github.thatrobin.soul_squad.powers.BlockPossession;
 import net.minecraft.block.Block;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.tag.BlockTags;
+import net.minecraft.registry.tag.BlockTags;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;

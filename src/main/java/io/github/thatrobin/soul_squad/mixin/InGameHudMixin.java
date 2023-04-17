@@ -1,8 +1,9 @@
-package io.github.thatrobin.poltergeist.mixin;
+package io.github.thatrobin.soul_squad.mixin;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import io.github.apace100.apoli.component.PowerHolderComponent;
-import io.github.thatrobin.poltergeist.Poltergeist;
+import io.github.thatrobin.soul_squad.component.BlockDurabilityComponent;
+import io.github.thatrobin.soul_squad.powers.BlockPossession;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.gui.hud.InGameHud;
@@ -15,8 +16,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import io.github.thatrobin.poltergeist.component.BlockDurabilityComponent;
-import io.github.thatrobin.poltergeist.powers.BlockPossession;
 
 @Mixin(InGameHud.class)
 public abstract class InGameHudMixin extends DrawableHelper {

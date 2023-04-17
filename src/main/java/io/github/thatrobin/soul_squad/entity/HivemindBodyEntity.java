@@ -1,11 +1,13 @@
-package io.github.thatrobin.hivemind.entity;
+package io.github.thatrobin.soul_squad.entity;
 
 import com.mojang.authlib.GameProfile;
 import io.github.apace100.apoli.component.PowerHolderComponent;
-import io.github.thatrobin.hivemind.component.BodyOwnerComponent;
-import io.github.thatrobin.hivemind.powers.BodyManagementPower;
+import io.github.thatrobin.soul_squad.component.BodyOwnerComponent;
+import io.github.thatrobin.soul_squad.powers.BodyManagementPower;
 import net.minecraft.block.entity.SkullBlockEntity;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.HungerManager;
 import net.minecraft.entity.player.PlayerEntity;

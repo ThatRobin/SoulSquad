@@ -1,9 +1,9 @@
-package io.github.thatrobin.hivemind.component;
+package io.github.thatrobin.soul_squad.component;
 
 import dev.onyxstudios.cca.api.v3.component.ComponentKey;
 import dev.onyxstudios.cca.api.v3.component.ComponentRegistry;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
-import io.github.thatrobin.hivemind.Hivemind;
+import io.github.thatrobin.soul_squad.SoulSquad;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -12,7 +12,7 @@ import java.util.UUID;
 
 public interface BodyHolderComponent extends AutoSyncedComponent {
 
-    ComponentKey<BodyHolderComponent> KEY = ComponentRegistry.getOrCreate(Hivemind.identifier("body_indexes"), BodyHolderComponent.class);
+    ComponentKey<BodyHolderComponent> KEY = ComponentRegistry.getOrCreate(SoulSquad.hivemind("body_indexes"), BodyHolderComponent.class);
 
     void setBody(int index, UUID uuid);
 

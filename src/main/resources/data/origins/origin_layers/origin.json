@@ -1,6 +1,7 @@
 {
     "replace": false,
     "origins": [
-        "hivemind:hivemind"
+        "soul_squad:hivemind",
+        "soul_squad:poltergeist"
     ]
 }

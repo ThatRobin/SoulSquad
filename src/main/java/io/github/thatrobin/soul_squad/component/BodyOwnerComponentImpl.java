@@ -1,6 +1,6 @@
-package io.github.thatrobin.hivemind.component;
+package io.github.thatrobin.soul_squad.component;
 
-import io.github.thatrobin.hivemind.Hivemind;
+import io.github.thatrobin.soul_squad.SoulSquad;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
@@ -41,7 +41,7 @@ public class BodyOwnerComponentImpl implements BodyOwnerComponent {
     @Override
     public void readFromNbt(@NotNull NbtCompound compoundTag) {
         if (owner == null) {
-            Hivemind.LOGGER.error("Owner was null in BodyOwnerComponentImpl#readFromNbt!");
+            SoulSquad.LOGGER.error("Owner was null in BodyOwnerComponentImpl#readFromNbt!");
         }
         if(compoundTag.contains("Owner")) {
             this.ownerUUID = compoundTag.getUuid("Owner");

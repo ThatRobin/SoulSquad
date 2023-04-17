@@ -44,7 +44,8 @@
                     "inverted": true
                 }
             ]
-        }
+        },
+        "hidden": true
     },
     "two_body": {
         "type": "origins:conditioned_attribute",
@@ -85,7 +86,8 @@
                     "inverted": true
                 }
             ]
-        }
+        },
+        "hidden": true
     },
     "three_body": {
         "type": "origins:conditioned_attribute",
@@ -116,6 +118,9 @@
                     }
                 }
             ]
-        }
-    }
+        },
+        "hidden": true
+    },
+    "name": "Limited Material",
+    "description": "Stretching your bodies material out so widely decreases how much pain you can handle."
 }

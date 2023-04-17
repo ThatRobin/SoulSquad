@@ -1,13 +1,12 @@
-package io.github.thatrobin.poltergeist.component;
+package io.github.thatrobin.soul_squad.component;
 
-import io.github.apace100.apoli.component.PowerHolderComponent;
-import io.github.apace100.apoli.component.PowerHolderComponentImpl;
+import io.github.thatrobin.soul_squad.SoulSquad;
 import net.minecraft.block.Block;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
-import io.github.thatrobin.poltergeist.Poltergeist;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -59,26 +58,26 @@ public class BlockDurabilityComponentImpl implements BlockDurabilityComponent {
     }
 
     @Override
-    public void readFromNbt(NbtCompound compoundTag) {
+    public void readFromNbt(@NotNull NbtCompound compoundTag) {
         if (owner == null) {
-            Poltergeist.LOGGER.error("Owner was null in BlockDurabilityComponent#readFromNbt!");
+            SoulSquad.LOGGER.error("Owner was null in BlockDurabilityComponent#readFromNbt!");
         }
         durabilities.clear();
 
-        if(compoundTag != null && !compoundTag.isEmpty()) {
+        if(!compoundTag.isEmpty()) {
             for (String key : compoundTag.getKeys()) {
                 int durability = compoundTag.getInt(key);
                 Identifier identifier = Identifier.tryParse(key);
-                Block block = Registry.BLOCK.get(identifier);
+                Block block = Registries.BLOCK.get(identifier);
                 durabilities.put(block, durability);
             }
         }
     }
 
     @Override
-    public void writeToNbt(NbtCompound compoundTag) {
+    public void writeToNbt(@NotNull NbtCompound compoundTag) {
         for(Map.Entry<Block, Integer> powerEntry : durabilities.entrySet()) {
-            Identifier identifier = Registry.BLOCK.getId(powerEntry.getKey());
+            Identifier identifier = Registries.BLOCK.getId(powerEntry.getKey());
             String key = identifier.toString();
             compoundTag.putInt(key, powerEntry.getValue());
         }

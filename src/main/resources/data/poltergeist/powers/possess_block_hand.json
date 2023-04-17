@@ -1,7 +1,7 @@
 {
     "type": "origins:active_self",
     "key": {
-        "key": "key.origins.primary_active"
+        "key": "key.origins.secondary_active"
     },
     "entity_action": {
         "type": "origins:if_else",
@@ -9,51 +9,52 @@
             "type": "origins:and",
             "conditions": [
                 {
-                    "type": "origins:in_block",
-                    "block_condition": {
-                        "type": "origins:replacable",
-                        "inverted": true
-                    }
+                    "type": "origins:sneaking"
                 },
                 {
-                    "type": "poltergeist:is_possessing_block",
-                    "inverted": true
+                    "type": "poltergeist:is_possessing_block"
                 }
             ]
         },
         "if_action": {
-            "type": "poltergeist:set_possessed_block_from_world"
-        },
-        "else_action": {
-            "type": "origins:if_else",
-            "condition": {
-                "type": "origins:sneaking"
-            },
-            "if_action": {
-                "type": "origins:and",
-                "actions": [
-                    {
-                        "type": "poltergeist:set_possessed_block_from_hand"
-                    },
-                    {
-                        "type": "origins:equipped_item_action",
-                        "equipment_slot": "mainhand",
-                        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "poltergeist:set_possessed_block_from_hand"
+                },
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "poltergeist:is_block"
+                                },
+                                {
+                                    "type": "origins:ingredient",
+                                    "ingredient": {
+                                        "tag": "poltergeist:unpossessable_blocks"
+                                    },
+                                    "inverted": true
+                                }
+                            ]
+                        },
+                        "if_action": {
                             "type": "origins:consume",
                             "amount": 1
                         }
                     }
-                ]
-            },
-            "else_action": {
-                "type": "poltergeist:reset_possessed_block"
-            }
+                }
+            ]
         }
     },
     "cooldown": 0,
     "hud_render": {
         "should_render": false
     },
-    "name": "Block Possession",
-    "description": "You can possess the block you are standing inside."
+    "name": "Hotswapping",
+    "description": "You can swap what block you are possessing on a whim by crouching when activating this ability."
 }

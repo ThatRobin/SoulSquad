@@ -1,11 +1,11 @@
-package io.github.thatrobin.poltergeist.powers;
+package io.github.thatrobin.soul_squad.powers;
 
 import io.github.apace100.apoli.power.Power;
 import io.github.apace100.apoli.power.PowerType;
 import io.github.apace100.apoli.power.factory.PowerFactory;
 import io.github.apace100.calio.data.SerializableData;
+import io.github.thatrobin.soul_squad.SoulSquad;
 import net.minecraft.entity.LivingEntity;
-import io.github.thatrobin.poltergeist.Poltergeist;
 import virtuoel.pehkui.api.ScaleData;
 import virtuoel.pehkui.api.ScaleTypes;
 
@@ -43,7 +43,7 @@ public class BlockScalePower extends Power {
     }
 
     public static PowerFactory<?> createFactory() {
-        return new PowerFactory<>(Poltergeist.identifier("block_scale"),
+        return new PowerFactory<>(SoulSquad.poltergeist("block_scale"),
                 new SerializableData(),
                 data ->
                         (type, entity) -> new BlockScalePower(type, entity)).allowCondition();

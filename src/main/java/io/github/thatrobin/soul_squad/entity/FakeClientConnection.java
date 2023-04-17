@@ -1,6 +1,5 @@
-package io.github.thatrobin.hivemind.entity;
+package io.github.thatrobin.soul_squad.entity;
 
-import io.netty.channel.embedded.EmbeddedChannel;
 import net.minecraft.network.ClientConnection;
 import net.minecraft.network.NetworkSide;
 

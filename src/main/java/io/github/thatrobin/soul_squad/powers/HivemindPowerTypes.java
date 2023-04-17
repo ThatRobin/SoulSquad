@@ -1,4 +1,4 @@
-package io.github.thatrobin.hivemind.powers;
+package io.github.thatrobin.soul_squad.powers;
 
 import io.github.apace100.apoli.power.factory.PowerFactory;
 import io.github.apace100.apoli.registry.ApoliRegistries;

@@ -25,6 +25,7 @@
 		"poltergeist:formless",
 		"poltergeist:no_exhaustion",
 		"poltergeist:possess_block",
+		"poltergeist:possess_block_hand",
 		"poltergeist:prevent_armor",
 		"poltergeist:prevent_blocks"
 	],

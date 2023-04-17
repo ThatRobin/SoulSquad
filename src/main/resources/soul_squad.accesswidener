@@ -1,0 +1,21 @@
+accessWidener   v1  named
+
+accessible method net/minecraft/entity/FallingBlockEntity <init> (Lnet/minecraft/world/World;DDDLnet/minecraft/block/BlockState;)V
+accessible    field    net/minecraft/client/render/entity/FallingBlockEntityRenderer    blockRenderManager    Lnet/minecraft/client/render/block/BlockRenderManager;
+accessible    field    net/minecraft/client/render/block/BlockRenderManager    builtinModelItemRenderer    Lnet/minecraft/client/render/item/BuiltinModelItemRenderer;
+accessible    field    net/minecraft/client/render/item/BuiltinModelItemRenderer    skullModels    Ljava/util/Map;
+accessible    field    net/minecraft/client/render/item/BuiltinModelItemRenderer    blockEntityRenderDispatcher    Lnet/minecraft/client/render/block/entity/BlockEntityRenderDispatcher;
+
+accessible method net/minecraft/world/World getEntityLookup ()Lnet/minecraft/world/entity/EntityLookup;
+accessible method net/minecraft/client/world/ClientWorld getEntityLookup ()Lnet/minecraft/world/entity/EntityLookup;
+accessible field net/minecraft/entity/player/PlayerEntity inventory Lnet/minecraft/entity/player/PlayerInventory;
+mutable field net/minecraft/entity/player/PlayerEntity inventory Lnet/minecraft/entity/player/PlayerInventory;
+mutable field net/minecraft/entity/player/PlayerInventory player Lnet/minecraft/entity/player/PlayerEntity;
+mutable field net/minecraft/entity/player/PlayerInventory armor Lnet/minecraft/util/collection/DefaultedList;
+mutable field net/minecraft/entity/player/PlayerInventory offHand Lnet/minecraft/util/collection/DefaultedList;
+mutable field net/minecraft/entity/player/PlayerInventory main Lnet/minecraft/util/collection/DefaultedList;
+accessible field net/minecraft/entity/player/PlayerInventory combinedInventory Ljava/util/List;
+accessible method net/minecraft/client/network/AbstractClientPlayerEntity getPlayerListEntry ()Lnet/minecraft/client/network/PlayerListEntry;
+accessible class net/minecraft/client/gui/hud/PlayerListHud$Heart
+accessible method net/minecraft/server/command/TeleportCommand teleport (Lnet/minecraft/server/command/ServerCommandSource;Lnet/minecraft/entity/Entity;Lnet/minecraft/server/world/ServerWorld;DDDLjava/util/Set;FFLnet/minecraft/server/command/TeleportCommand$LookTarget;)V
+accessible method net/minecraft/client/render/item/ItemRenderer renderGuiItemModel (Lnet/minecraft/item/ItemStack;IILnet/minecraft/client/render/model/BakedModel;)V

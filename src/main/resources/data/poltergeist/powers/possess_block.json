@@ -25,16 +25,7 @@
             "type": "poltergeist:set_possessed_block_from_world"
         },
         "else_action": {
-            "type": "origins:if_else",
-            "condition": {
-                "type": "origins:sneaking"
-            },
-            "if_action": {
-                "type": "poltergeist:set_possessed_block_from_hand"
-            },
-            "else_action": {
-                "type": "poltergeist:reset_possessed_block"
-            }
+            "type": "poltergeist:reset_possessed_block"
         }
     },
     "cooldown": 0,

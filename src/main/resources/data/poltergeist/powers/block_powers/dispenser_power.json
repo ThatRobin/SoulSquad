@@ -78,7 +78,8 @@
 		},
 		"key": {
 			"key": "key.origins.secondary_active"
-		}
+		},
+        "hidden": true
 	},
 	"name": "Dispenser Fire",
 	"description": "When possessing a dispenser, you can shoot arrows you're holding."

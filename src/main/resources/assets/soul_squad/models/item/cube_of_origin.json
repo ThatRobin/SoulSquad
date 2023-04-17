@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "poltergeist:item/cube_of_origin"
+        "layer0": "soul_squad:item/cube_of_origin"
     }
 }

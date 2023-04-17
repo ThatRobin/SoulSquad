@@ -1,15 +1,15 @@
-package io.github.thatrobin.poltergeist.powers;
+package io.github.thatrobin.soul_squad.powers;
 
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import io.github.apace100.apoli.power.Power;
 import io.github.apace100.apoli.power.PowerType;
 import io.github.apace100.apoli.power.factory.PowerFactory;
 import io.github.apace100.calio.data.SerializableData;
-import io.github.thatrobin.poltergeist.component.BlockDurabilityComponent;
+import io.github.thatrobin.soul_squad.SoulSquad;
+import io.github.thatrobin.soul_squad.component.BlockDurabilityComponent;
 import net.fabricmc.yarn.constants.MiningLevels;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.ShulkerBoxBlockEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -20,18 +20,15 @@ import net.minecraft.nbt.NbtHelper;
 import net.minecraft.recipe.CraftingRecipe;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.Recipe;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.state.property.Properties;
-import io.github.thatrobin.poltergeist.Poltergeist;
-import net.minecraft.tag.BlockTags;
-import net.minecraft.tag.ItemTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import org.apache.commons.compress.utils.Lists;
-
-import java.util.List;
 
 public class BlockPossession extends Power {
 
@@ -52,7 +49,6 @@ public class BlockPossession extends Power {
         if(consumeHandItem) {
             if(entity instanceof PlayerEntity player) {
                 if(possessedBlock != null) {
-                    player.getMainHandStack().decrement(1);
                     player.giveItemStack(possessedBlock.getBlock().asItem().getDefaultStack());
                     possessedBlock = blockState.contains(Properties.WATERLOGGED) ? blockState.with(Properties.WATERLOGGED, false) : blockState;
                 }
@@ -61,7 +57,7 @@ public class BlockPossession extends Power {
         if (removeFromWorld) {
             entity.world.breakBlock(entity.getBlockPos(), false);
         }
-        if (possessedBlock == null && !blockState.isIn(Poltergeist.UNPOSSESSABLE_BLOCKS)) {
+        if (possessedBlock == null && !blockState.isIn(SoulSquad.UNPOSSESSABLE_BLOCKS)) {
             possessedBlock = blockState.contains(Properties.WATERLOGGED) ? blockState.with(Properties.WATERLOGGED, false) : blockState;
         }
         if(possessedBlock != null) {
@@ -166,7 +162,7 @@ public class BlockPossession extends Power {
     }
 
     public static PowerFactory<?> createFactory() {
-        return new PowerFactory<>(Poltergeist.identifier("block_possession"),
+        return new PowerFactory<>(SoulSquad.poltergeist("block_possession"),
                 new SerializableData(),
                 data ->
                         BlockPossession::new)
@@ -187,7 +183,7 @@ public class BlockPossession extends Power {
         if(tag instanceof NbtCompound compound) {
             if(compound.contains("blockState")) {
                 if (compound.get("blockState") != null && compound.get("blockState") instanceof NbtCompound blockStateCompound) {
-                    this.possessedBlock = NbtHelper.toBlockState(blockStateCompound);
+                    this.possessedBlock = NbtHelper.toBlockState(this.entity.world.createCommandRegistryWrapper(RegistryKeys.BLOCK), blockStateCompound);
                 }
             }
         }
