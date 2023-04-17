@@ -1,0 +1,46 @@
+{
+    "type": "origins:multiple",
+    "activate_alignment": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": ""
+        },
+        "key": {
+            "key": "key.sneak"
+        },
+        "cooldown": 60,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "tick_activation": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "execute align xyz positioned ~0.5 ~ ~0.5 run tp ~ ~ ~"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "poltergeist:align_block_activate_alignment",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "tick_reset": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:change_resource",
+            "resource": "poltergeist:align_block_activate_alignment",
+            "operation": "set",
+            "change": 60
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:moving"
+        }
+    },
+    "name": "Sneaky",
+    "description": "By pressing shift and not moving for 3 seconds, you align yourself with all nearby blocks."
+}

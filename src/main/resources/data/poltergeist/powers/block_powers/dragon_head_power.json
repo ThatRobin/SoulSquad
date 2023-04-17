@@ -1,0 +1,13 @@
+{
+    "type": "origins:elytra_flight",
+    "render_elytra": true,
+	"condition": {
+		"type": "poltergeist:is_possessing_block",
+		"block_condition": {
+			"type": "origins:block",
+			"block": "minecraft:dragon_head"
+		}
+	},
+	"name": "Dragon Wings",
+	"description": "When possessing a dragon head, you gain the dragons flight."
+}

@@ -1,0 +1,27 @@
+{
+    "type": "origins:multiple",
+    "body_one_texture": {
+        "type": "origins:status_bar_texture",
+        "texture": "hivemind:textures/gui/body_one.png",
+        "condition": {
+            "type": "hivemind:in_body",
+            "body_number": 0
+        }
+    },
+    "body_two_texture": {
+        "type": "origins:status_bar_texture",
+        "texture": "hivemind:textures/gui/body_two.png",
+        "condition": {
+            "type": "hivemind:in_body",
+            "body_number": 1
+        }
+    },
+    "body_three_texture": {
+        "type": "origins:status_bar_texture",
+        "texture": "hivemind:textures/gui/body_three.png",
+        "condition": {
+            "type": "hivemind:in_body",
+            "body_number": 2
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "origins:active_self",
+  "entity_action": {
+    "type": "hivemind:create_body"
+  },
+  "cooldown": 20,
+  "hud_render": {
+    "should_render": false
+  }
+}

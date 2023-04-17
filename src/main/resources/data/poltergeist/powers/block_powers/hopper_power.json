@@ -1,0 +1,17 @@
+{
+	"type": "origins:action_over_time",
+	"interval": 20,
+	"entity_action": {
+		"type": "origins:execute_command",
+		"command": "execute as @s run tp @e[type=item,distance=1..5] ~ ~ ~"
+	},
+	"condition": {
+		"type": "poltergeist:is_possessing_block",
+		"block_condition": {
+			"type": "origins:block",
+			"block": "minecraft:hopper"
+		}
+	},
+	"name": "Hopper Hopping",
+	"description": "While possessing a hopper, items in a 5 block radius will teleport to you."
+}

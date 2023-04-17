@@ -1,0 +1,5 @@
+{
+    "type": "poltergeist:block_possession",
+    "name": "Block Durability",
+    "description": "When possessing a block, don't take damage, nor lose hunger, any damage done to you, decreases you blocks durability, and durability naturally decreases over time."
+}

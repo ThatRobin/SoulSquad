@@ -1,0 +1,37 @@
+{
+	"type": "origins:multiple",
+	"auto_smelt": {
+		"type": "origins:replace_loot_table",
+		"replace": {
+			"([a-z|0-9|\\-|_])*:entities\/([a-z|0-9|\\-|_])*": "poltergeist:smoker_smelt",
+			"([a-z|0-9|\\-|_])*:entities\/sheep\/([a-z|0-9|\\-|_])*": "poltergeist:smoker_smelt"
+		},
+		"condition": {
+			"type": "poltergeist:is_possessing_block",
+			"block_condition": {
+				"type": "origins:block",
+				"block": "minecraft:smoker"
+			}
+		}
+	},
+	"fire_aspect": {
+		"type": "origins:target_action_on_hit",
+		"entity_action": {
+			"type": "origins:set_on_fire",
+			"duration": 5
+		},
+		"condition": {
+			"type": "poltergeist:is_possessing_block",
+			"block_condition": {
+				"type": "origins:block",
+				"block": "minecraft:smoker"
+			}
+		},
+		"cooldown": 0,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	"name": "Smoking Hot",
+	"description": "When you possess a smoker, animal drops auto-smelt, and drop double."
+}

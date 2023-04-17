@@ -1,0 +1,69 @@
+{
+    "type": "origins:modify_damage_taken",
+    "self_action": {
+        "type": "origins:if_else_list",
+        "actions": [
+            {
+                "condition": {
+                    "type": "poltergeist:is_possessing_block",
+                    "block_condition": {
+                        "type": "origins:in_tag",
+                        "tag": "minecraft:needs_diamond_tool"
+                    }
+                },
+                "action": {
+                    "type": "origins:change_resource",
+                    "resource": "poltergeist:block_durability",
+                    "change": -4
+                }
+            },
+            {
+                "condition": {
+                    "type": "poltergeist:is_possessing_block",
+                    "block_condition": {
+                        "type": "origins:in_tag",
+                        "tag": "minecraft:needs_iron_tool"
+                    }
+                },
+                "action": {
+                    "type": "origins:change_resource",
+                    "resource": "poltergeist:block_durability",
+                    "change": -8
+                }
+            },
+            {
+                "condition": {
+                    "type": "poltergeist:is_possessing_block",
+                    "block_condition": {
+                        "type": "origins:in_tag",
+                        "tag": "minecraft:needs_stone_tool"
+                    }
+                },
+                "action": {
+                    "type": "origins:change_resource",
+                    "resource": "poltergeist:block_durability",
+                    "change": -12
+                }
+            },
+            {
+                "condition": {
+                    "type": "origins:constant",
+                    "value": true
+                },
+                "action": {
+                    "type": "origins:change_resource",
+                    "resource": "poltergeist:block_durability",
+                    "change": -16
+                }
+            }
+        ]
+    },
+    "condition": {
+        "type": "poltergeist:is_possessing_block"
+    },
+    "modifier": {
+        "name": "Immunity to damage",
+        "operation": "set_total",
+        "value": 0
+    }
+}

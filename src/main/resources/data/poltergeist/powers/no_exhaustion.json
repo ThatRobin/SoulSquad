@@ -1,0 +1,12 @@
+{
+    "type": "origins:modify_exhaustion",
+    "modifier": {
+        "name": "No exhaustion when possessing",
+        "operation": "set_total",
+        "value": 0.0
+    },
+    "condition": {
+        "type": "poltergeist:is_possessing_block"
+    },
+    "hidden": true
+}

@@ -1,0 +1,12 @@
+{
+	"type": "origins:fire_immunity",
+	"condition": {
+		"type": "poltergeist:is_possessing_block",
+		"block_condition": {
+			"type": "origins:block",
+			"block": "minecraft:netherite_block"
+		}
+	},
+	"name": "Fireproof Netherite",
+	"description": "While possessing netherite, you are immune to fire."
+}

@@ -1,0 +1,18 @@
+{
+	"type": "origins:inventory",
+	"container_type": "double_chest",
+	"drop_on_death": false,
+	"key": {
+		"key": "key.origins.secondary_active"
+	},
+	"title": "Shulker Box",
+	"condition": {
+		"type": "poltergeist:is_possessing_block",
+		"block_condition": {
+			"type": "origins:in_tag",
+			"tag": "minecraft:shulker_boxes"
+		}
+	},
+	"name": "Shulk Storage",
+	"description": "When possessing a shulker box, you can open a double chest to store items."
+}

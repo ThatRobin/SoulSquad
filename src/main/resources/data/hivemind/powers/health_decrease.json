@@ -1,0 +1,121 @@
+{
+    "type": "origins:multiple",
+    "one_body": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "One Body Health Reduction",
+            "attribute": "minecraft:generic.max_health",
+            "value": -2.0,
+            "operation": "addition"
+        },
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "hivemind:body_count",
+                            "comparison": "==",
+                            "compare_to": 1
+                        },
+                        {
+                            "type": "hivemind:body_owner_condition",
+                            "bientity_condition": {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "hivemind:body_count",
+                                    "comparison": "==",
+                                    "compare_to": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "hivemind:health_decrease_two_body",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "hivemind:health_decrease_three_body",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "two_body": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "Two Body Health Reduction",
+            "attribute": "minecraft:generic.max_health",
+            "value": -10.0,
+            "operation": "addition"
+        },
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "hivemind:body_count",
+                            "comparison": "==",
+                            "compare_to": 2
+                        },
+                        {
+                            "type": "hivemind:body_owner_condition",
+                            "bientity_condition": {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "hivemind:body_count",
+                                    "comparison": "==",
+                                    "compare_to": 2
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "hivemind:health_decrease_three_body",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "three_body": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "Three Body Health Reduction",
+            "attribute": "minecraft:generic.max_health",
+            "value": -14.0,
+            "operation": "addition"
+        },
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "hivemind:body_count",
+                    "comparison": "==",
+                    "compare_to": 3
+                },
+                {
+                    "type": "hivemind:body_owner_condition",
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "hivemind:body_count",
+                            "comparison": "==",
+                            "compare_to": 3
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

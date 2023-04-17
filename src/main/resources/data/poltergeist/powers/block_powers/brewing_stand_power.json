@@ -1,0 +1,129 @@
+{
+	"type": "origins:multiple",
+	"blaze_powder": {
+		"type": "origins:item_on_item",
+		"on_item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:blaze_powder"
+			}
+		},
+		"using_item_condition": {
+			"type": "origins:empty"
+		},
+		"on_item_action": {
+			"type": "origins:consume",
+			"amount": 1
+		},
+		"entity_action": {
+			"type": "origins:apply_effect",
+			"effect": {
+				"effect": "minecraft:strength",
+				"duration": 360,
+				"amplifier": 0
+			}
+		},
+		"condition": {
+			"type": "poltergeist:is_possessing_block",
+			"block_condition": {
+				"type": "origins:block",
+				"block": "minecraft:brewing_stand"
+			}
+		}
+	},
+	"magma_cream": {
+		"type": "origins:item_on_item",
+		"on_item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:magma_cream"
+			}
+		},
+		"using_item_condition": {
+			"type": "origins:empty"
+		},
+		"on_item_action": {
+			"type": "origins:consume",
+			"amount": 1
+		},
+		"entity_action": {
+			"type": "origins:apply_effect",
+			"effect": {
+				"effect": "minecraft:fire_resistance",
+				"duration": 360,
+				"amplifier": 0
+			}
+		},
+		"condition": {
+			"type": "poltergeist:is_possessing_block",
+			"block_condition": {
+				"type": "origins:block",
+				"block": "minecraft:brewing_stand"
+			}
+		}
+	},
+	"sugar": {
+		"type": "origins:item_on_item",
+		"on_item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:sugar"
+			}
+		},
+		"using_item_condition": {
+			"type": "origins:empty"
+		},
+		"on_item_action": {
+			"type": "origins:consume",
+			"amount": 1
+		},
+		"entity_action": {
+			"type": "origins:apply_effect",
+			"effect": {
+				"effect": "minecraft:speed",
+				"duration": 360,
+				"amplifier": 0
+			}
+		},
+		"condition": {
+			"type": "poltergeist:is_possessing_block",
+			"block_condition": {
+				"type": "origins:block",
+				"block": "minecraft:brewing_stand"
+			}
+		}
+	},
+	"ghast_tear": {
+		"type": "origins:item_on_item",
+		"on_item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:ghast_tear"
+			}
+		},
+		"using_item_condition": {
+			"type": "origins:empty"
+		},
+		"on_item_action": {
+			"type": "origins:consume",
+			"amount": 1
+		},
+		"entity_action": {
+			"type": "origins:apply_effect",
+			"effect": {
+				"effect": "minecraft:regeneration",
+				"duration": 360,
+				"amplifier": 0
+			}
+		},
+		"condition": {
+			"type": "poltergeist:is_possessing_block",
+			"block_condition": {
+				"type": "origins:block",
+				"block": "minecraft:brewing_stand"
+			}
+		}
+	},
+	"name": "Brewing without bottles",
+	"description": "When you possess a brewing stand, you can consume potion incredients to gain their powers."
+}

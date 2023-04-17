@@ -1,0 +1,32 @@
+{
+	"type": "origins:active_self",
+	"cooldown": 0,
+	"hud_render": {
+		"should_render": false
+	},
+	"key": {
+		"key": "key.origins.secondary_active"
+	},
+	"entity_action": {
+		"type": "origins:and",
+		"actions": [
+			{
+				"type": "poltergeist:reset_possessed_block",
+				"place_block": false
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "summon tnt ~ ~ ~"
+			}
+		]
+	},
+	"condition": {
+		"type": "poltergeist:is_possessing_block",
+		"block_condition": {
+			"type": "origins:block",
+			"block": "minecraft:tnt"
+		}
+	},
+	"name": "TNT Ignition",
+	"description": "When possessing TNT, you can ignite it, killing you."
+}

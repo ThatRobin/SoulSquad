@@ -1,0 +1,85 @@
+{
+	"type": "origins:multiple",
+	"fire_arrow": {
+		"type": "origins:fire_projectile",
+		"entity_type": "minecraft:arrow",
+		"cooldown": 120,
+		"hud_render": {
+			"sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+			"bar_index": 2,
+			"condition": {
+				"type": "poltergeist:is_possessing_block",
+				"block_condition": {
+					"type": "origins:block",
+					"block": "minecraft:dispenser"
+				}
+			}
+		},
+		"tag": "{pickup:0b}",
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:arrow"
+						}
+					}
+				},
+				{
+					"type": "poltergeist:is_possessing_block",
+					"block_condition": {
+						"type": "origins:block",
+						"block": "minecraft:dispenser"
+					}
+				}]
+		},
+		"key": {
+			"key": "key.origins.secondary_active"
+		}
+	},
+	"consume_arrow": {
+		"type": "origins:active_self",
+		"cooldown": 120,
+		"hud_render": {
+			"should_render": false
+		},
+		"entity_action": {
+			"type": "origins:equipped_item_action",
+			"equipment_slot": "mainhand",
+			"action": {
+				"type": "origins:consume",
+				"amount": 1
+			}
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:arrow"
+						}
+					}
+				},
+				{
+					"type": "poltergeist:is_possessing_block",
+					"block_condition": {
+						"type": "origins:block",
+						"block": "minecraft:dispenser"
+					}
+				}]
+		},
+		"key": {
+			"key": "key.origins.secondary_active"
+		}
+	},
+	"name": "Dispenser Fire",
+	"description": "When possessing a dispenser, you can shoot arrows you're holding."
+}

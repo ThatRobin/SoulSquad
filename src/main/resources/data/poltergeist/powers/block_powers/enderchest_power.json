@@ -1,0 +1,22 @@
+{
+	"type": "origins:active_self",
+	"cooldown": 0,
+	"entity_action": {
+		"type": "origins:ender_chest"
+	},
+	"condition": {
+		"type": "poltergeist:is_possessing_block",
+		"block_condition": {
+			"type": "origins:block",
+			"block": "minecraft:ender_chest"
+		}
+	},
+	"key": {
+		"key": "key.origins.secondary_active"
+	},
+	"hud_render": {
+		"should_render": false
+	},
+	"name": "Ender Chest",
+	"description": "When possessing an Ender Chest, you can open the Ender Chest GUI from anywhere."
+}

@@ -1,0 +1,46 @@
+{
+	"type": "origins:multiple",
+	"prevent_blocks": {
+		"type": "origins:prevent_block_selection",
+		"condition": {
+			"type": "poltergeist:is_possessing_block",
+			"inverted": true
+		}
+	},
+	"invisibility": {
+		"type": "origins:invisibility",
+		"render_armor": true,
+		"condition": {
+			"type": "poltergeist:is_possessing_block",
+			"inverted": true
+		}
+	},
+	"bodiless": {
+		"type": "origins:phasing",
+		"blacklist": true,
+		"render_type": "blindness",
+		"view_distance": 10,
+		"block_condition": {
+			"type": "origins:in_tag",
+			"tag": "poltergeist:unpossessable_blocks",
+			"value": true
+		},
+		"phase_down_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:on_block"
+				}
+			]
+		},
+		"condition": {
+			"type": "poltergeist:is_possessing_block",
+			"inverted": true
+		}
+	},
+	"name": "Formless",
+	"description": "When you are not possessing a block, you can phase through blocks, but cannot mine any."
+}

@@ -1,0 +1,22 @@
+{
+	"type": "origins:active_self",
+	"cooldown": 0,
+	"entity_action": {
+		"type": "origins:crafting_table"
+	},
+	"condition": {
+		"type": "poltergeist:is_possessing_block",
+		"block_condition": {
+			"type": "origins:block",
+			"block": "minecraft:crafting_table"
+		}
+	},
+	"key": {
+		"key": "key.origins.secondary_active"
+	},
+	"hud_render": {
+		"should_render": false
+	},
+	"name": "Crafty Table",
+	"description": "When possessing a crafting table, you can open the crafting GUI from anywhere."
+}

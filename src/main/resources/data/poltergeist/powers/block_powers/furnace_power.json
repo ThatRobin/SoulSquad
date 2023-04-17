@@ -1,0 +1,20 @@
+{
+	"type": "origins:multiple",
+	"auto_smelt": {
+		"type": "origins:replace_loot_table",
+		"replace": {
+			"([a-z|0-9|\\-|_])*:blocks\/([a-z|0-9|\\-|_])*": "poltergeist:furnace_smelt",
+			"([a-z|0-9|\\-|_])*:entities\/([a-z|0-9|\\-|_])*": "poltergeist:furnace_smelt",
+			"([a-z|0-9|\\-|_])*:entities\/sheep\/([a-z|0-9|\\-|_])*": "poltergeist:furnace_smelt"
+		},
+		"condition": {
+			"type": "poltergeist:is_possessing_block",
+			"block_condition": {
+				"type": "origins:block",
+				"block": "minecraft:furnace"
+			}
+		}
+	},
+	"name": "Furnace",
+	"description": "When possessing a furnace, you auto-smelt blocks you mine and food that gets dropped from mobs you kill."
+}

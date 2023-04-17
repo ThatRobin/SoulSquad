@@ -1,0 +1,13 @@
+{
+	"powers": [
+        "hivemind:body_management",
+        "hivemind:create_body",
+        "hivemind:health_decrease",
+        "hivemind:body_textures"
+	],
+	"icon": "minecraft:bee_nest",
+	"order": 100,
+	"impact": 1,
+	"name": "Hivemind",
+	"description": "You are able to split yourself into multiple copies, each of which your soul can occupy."
+}

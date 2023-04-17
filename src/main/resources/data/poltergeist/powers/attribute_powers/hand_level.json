@@ -1,0 +1,46 @@
+{
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+        "attribute": "minecraft:generic.attack_damage",
+        "operation": "addition",
+        "value": 1
+    },
+    "tick_rate": 20,
+    "condition": {
+        "type": "poltergeist:is_possessing_block",
+        "block_condition": {
+            "type": "poltergeist:has_item_in_recipe",
+            "item_condition": {
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:diamond"
+                        }
+                    },
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:iron_ingot"
+                        }
+                    },
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:cobblestone"
+                        }
+                    },
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "tag": "minecraft:planks"
+                        }
+                    }
+                ],
+                "inverted": true
+            }
+        }
+    },
+    "hidden": true
+}

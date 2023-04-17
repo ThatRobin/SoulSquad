@@ -1,0 +1,46 @@
+{
+    "type": "origins:active_self",
+    "key": {
+        "key": "key.origins.primary_active"
+    },
+    "entity_action": {
+        "type": "origins:if_else",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:in_block",
+                    "block_condition": {
+                        "type": "origins:replacable",
+                        "inverted": true
+                    }
+                },
+                {
+                    "type": "poltergeist:is_possessing_block",
+                    "inverted": true
+                }
+            ]
+        },
+        "if_action": {
+            "type": "poltergeist:set_possessed_block_from_world"
+        },
+        "else_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:sneaking"
+            },
+            "if_action": {
+                "type": "poltergeist:set_possessed_block_from_hand"
+            },
+            "else_action": {
+                "type": "poltergeist:reset_possessed_block"
+            }
+        }
+    },
+    "cooldown": 0,
+    "hud_render": {
+        "should_render": false
+    },
+    "name": "Block Possession",
+    "description": "You can possess the block you are standing inside."
+}

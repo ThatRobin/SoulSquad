@@ -1,0 +1,18 @@
+{
+	"type": "origins:inventory",
+	"container_type": "chest",
+	"drop_on_death": false,
+	"key": {
+		"key": "key.origins.secondary_active"
+	},
+	"title": "Chest",
+	"condition": {
+		"type": "poltergeist:is_possessing_block",
+		"block_condition": {
+			"type": "origins:block",
+			"block": "minecraft:chest"
+		}
+	},
+	"name": "Chest",
+	"description": "When you possess a chest, you can open an inventory to store items in."
+}
