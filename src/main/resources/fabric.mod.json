@@ -4,7 +4,9 @@
     "version": "${version}",
     "name": "soul_squad",
     "description": "",
-    "authors": [],
+    "authors": [
+        "ThatRobin"
+    ],
     "contact": {
         "repo": "https://github.com/robin/soul_squad"
     },
