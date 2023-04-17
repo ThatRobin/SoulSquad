@@ -43,6 +43,7 @@ public class SoulSquad implements ModInitializer, EntityComponentInitializer {
     public static final Logger LOGGER = LogManager.getLogger(SoulSquad.class);
     public static final Item CUBE_OF_ORIGIN = new OrbOfOriginItem();
 
+    public static KeyBinding SWAP_BLOCK = new KeyBinding("key.poltergeist.swap_block", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_C, "category." + MODID);
     public static KeyBinding CYCLE_BODIES = new KeyBinding("key.hivemind.cycle_bodies", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_Z, "category." + MODID);
     public static KeyBinding OPEN_CYCLE_SCREEN = new KeyBinding("key.hivemind.open_cycle_screen", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_X, "category." + MODID);
 
@@ -51,6 +52,8 @@ public class SoulSquad implements ModInitializer, EntityComponentInitializer {
 
     @Override
     public void onInitialize() {
+        ApoliClient.registerPowerKeybinding("key.poltergeist.swap_block", SWAP_BLOCK);
+        KeyBindingHelper.registerKeyBinding(SWAP_BLOCK);
         ApoliClient.registerPowerKeybinding("key.hivemind.cycle_bodies", CYCLE_BODIES);
         KeyBindingHelper.registerKeyBinding(CYCLE_BODIES);
         ApoliClient.registerPowerKeybinding("key.hivemind.open_cycle_screen", OPEN_CYCLE_SCREEN);

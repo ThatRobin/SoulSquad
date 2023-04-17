@@ -1,7 +1,7 @@
 {
     "type": "origins:active_self",
     "key": {
-        "key": "key.origins.secondary_active"
+        "key": "key.poltergeist.swap_block"
     },
     "entity_action": {
         "type": "origins:if_else",
