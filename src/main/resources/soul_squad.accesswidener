@@ -7,6 +7,7 @@ accessible    field    net/minecraft/client/render/item/BuiltinModelItemRenderer
 accessible    field    net/minecraft/client/render/item/BuiltinModelItemRenderer    blockEntityRenderDispatcher    Lnet/minecraft/client/render/block/entity/BlockEntityRenderDispatcher;
 
 accessible method net/minecraft/world/World getEntityLookup ()Lnet/minecraft/world/entity/EntityLookup;
+accessible method net/minecraft/server/world/ServerWorld getEntityLookup ()Lnet/minecraft/world/entity/EntityLookup;
 accessible method net/minecraft/client/world/ClientWorld getEntityLookup ()Lnet/minecraft/world/entity/EntityLookup;
 accessible field net/minecraft/entity/player/PlayerEntity inventory Lnet/minecraft/entity/player/PlayerInventory;
 mutable field net/minecraft/entity/player/PlayerEntity inventory Lnet/minecraft/entity/player/PlayerInventory;

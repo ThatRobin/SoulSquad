@@ -12,6 +12,7 @@
     },
     "license": "MIT",
     "icon": "assets/soul_squad/icon.png",
+    "accessWidener" : "soul_squad.accesswidener",
     "environment": "*",
     "entrypoints": {
         "client": [

@@ -61,7 +61,7 @@ public class SoulSquad implements ModInitializer, EntityComponentInitializer {
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (OPEN_CYCLE_SCREEN.wasPressed()) {
-                if (client.player != null && ModComponents.ORIGIN.get(client.player).getOrigin(OriginLayers.getLayer(Origins.identifier("origin"))).getIdentifier().equals(SoulSquad.hivemind("hivemind"))) {
+                if (client.player != null && ModComponents.ORIGIN.get(client.player).getOrigin(OriginLayers.getLayer(Origins.identifier("origin"))).getIdentifier().equals(new Identifier(MODID,"hivemind"))) {
                     MinecraftClient.getInstance().setScreen(new BodySelectionScreen());
                 }
             }
