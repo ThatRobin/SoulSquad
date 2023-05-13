@@ -43,30 +43,12 @@ public class SoulSquad implements ModInitializer, EntityComponentInitializer {
     public static final Logger LOGGER = LogManager.getLogger(SoulSquad.class);
     public static final Item CUBE_OF_ORIGIN = new OrbOfOriginItem();
 
-    public static KeyBinding SWAP_BLOCK = new KeyBinding("key.poltergeist.swap_block", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_C, "category." + MODID);
-    public static KeyBinding CYCLE_BODIES = new KeyBinding("key.hivemind.cycle_bodies", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_Z, "category." + MODID);
-    public static KeyBinding OPEN_CYCLE_SCREEN = new KeyBinding("key.hivemind.open_cycle_screen", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_X, "category." + MODID);
 
     public static final TagKey<Block> UNPOSSESSABLE_BLOCKS = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MODID, "unpossessable_blocks"));
     public static final TagKey<Block> MINEABLE_COMBO = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MODID, "mineable_combo"));
 
     @Override
     public void onInitialize() {
-        ApoliClient.registerPowerKeybinding("key.poltergeist.swap_block", SWAP_BLOCK);
-        KeyBindingHelper.registerKeyBinding(SWAP_BLOCK);
-        ApoliClient.registerPowerKeybinding("key.hivemind.cycle_bodies", CYCLE_BODIES);
-        KeyBindingHelper.registerKeyBinding(CYCLE_BODIES);
-        ApoliClient.registerPowerKeybinding("key.hivemind.open_cycle_screen", OPEN_CYCLE_SCREEN);
-        KeyBindingHelper.registerKeyBinding(OPEN_CYCLE_SCREEN);
-
-        ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            while (OPEN_CYCLE_SCREEN.wasPressed()) {
-                if (client.player != null && ModComponents.ORIGIN.get(client.player).getOrigin(OriginLayers.getLayer(Origins.identifier("origin"))).getIdentifier().equals(new Identifier(MODID,"hivemind"))) {
-                    MinecraftClient.getInstance().setScreen(new BodySelectionScreen());
-                }
-            }
-        });
-
         HivemindPacketC2S.register();
         BlockConditions.register();
         EntityActions.register();

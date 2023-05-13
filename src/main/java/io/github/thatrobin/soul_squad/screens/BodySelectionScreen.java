@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.mojang.blaze3d.systems.RenderSystem;
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import io.github.thatrobin.soul_squad.SoulSquad;
+import io.github.thatrobin.soul_squad.client.SoulSquadClient;
 import io.github.thatrobin.soul_squad.component.BodyHolderComponent;
 import io.github.thatrobin.soul_squad.networking.HivemindPackets;
 import io.github.thatrobin.soul_squad.powers.BodyManagementPower;
@@ -38,6 +39,7 @@ import net.minecraft.util.crash.CrashReportSection;
 import java.util.List;
 import java.util.Optional;
 
+@Environment(EnvType.CLIENT)
 public class BodySelectionScreen extends Screen {
 
     static final Identifier TEXTURE = SoulSquad.hivemind("textures/gui/body_switcher.png");
@@ -119,7 +121,7 @@ public class BodySelectionScreen extends Screen {
     }
 
     private boolean checkForClose() {
-        if (!InputUtil.isKeyPressed(this.client.getWindow().getHandle(), KeyBindingHelper.getBoundKeyOf(SoulSquad.OPEN_CYCLE_SCREEN).getCode())) {
+        if (!InputUtil.isKeyPressed(this.client.getWindow().getHandle(), KeyBindingHelper.getBoundKeyOf(SoulSquadClient.OPEN_CYCLE_SCREEN).getCode())) {
             this.apply();
             this.client.setScreen(null);
             return true;
@@ -129,7 +131,7 @@ public class BodySelectionScreen extends Screen {
 
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-        if (SoulSquad.CYCLE_BODIES.matchesKey(keyCode, scanCode) && this.gameMode.isPresent()) {
+        if (SoulSquadClient.CYCLE_BODIES.matchesKey(keyCode, scanCode) && this.gameMode.isPresent()) {
             this.mouseUsedForSelection = false;
             this.gameMode = this.gameMode.get().next();
             return true;
